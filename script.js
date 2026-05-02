@@ -1,6 +1,41 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
 
+const faviconPath = '/assets/img/logo/FNAH_favicon_logo_simplificado_512.png';
+
+function upsertHeadLink(selector, attributes) {
+  let link = document.head.querySelector(selector);
+  if (!link) {
+    link = document.createElement('link');
+    document.head.appendChild(link);
+  }
+
+  Object.entries(attributes).forEach(([key, value]) => {
+    link.setAttribute(key, value);
+  });
+}
+
+function applyFavicons() {
+  upsertHeadLink('link[rel="icon"]', {
+    rel: 'icon',
+    type: 'image/png',
+    sizes: '512x512',
+    href: faviconPath
+  });
+
+  upsertHeadLink('link[rel="apple-touch-icon"]', {
+    rel: 'apple-touch-icon',
+    href: faviconPath
+  });
+
+  upsertHeadLink('link[rel="manifest"]', {
+    rel: 'manifest',
+    href: '/site.webmanifest'
+  });
+}
+
+applyFavicons();
+
 const languageRoutes = {
   '/': { es: '/', en: '/en/' },
   '/index.html': { es: '/', en: '/en/' },
