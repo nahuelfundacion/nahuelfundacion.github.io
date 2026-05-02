@@ -130,6 +130,34 @@ img { max-width: 100%; display: block; }
 
 .main-nav a:hover::after { width: 100%; }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 250, 241, 0.74);
+  color: var(--green-deep);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.main-nav .lang-switch a {
+  padding: 0.1rem 0.15rem;
+}
+
+.main-nav .lang-switch a::after { display: none; }
+
+.lang-switch span {
+  color: var(--copper-deep);
+  opacity: 0.7;
+}
+
+.lang-switch a[aria-current="page"] {
+  color: var(--copper-deep);
+}
+
 .menu-toggle {
   display: none;
   border: 1px solid var(--line);
@@ -844,6 +872,10 @@ h3 {
     box-shadow: var(--shadow);
   }
   .main-nav.open { display: flex; }
+  .main-nav .lang-switch {
+    align-self: flex-start;
+    margin-top: 0.35rem;
+  }
   .hero, .split-section, .feature-section, .case-layout, .archive-grid { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
   .hero-visual { min-height: 520px; }
